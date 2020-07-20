@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   s.swift_version = '5.1'
 
   s.source = {
-    git: 'git@github.com:rohitsethii/wallet-core.git',
+    git: 'https://github.com:rohitsethii/wallet-core.git',
     tag: version,
     submodules: true
   }
