@@ -1,0 +1,25 @@
+// Copyright © 2017-2020 Trust Wallet.
+//
+// This file is part of Trust. The full Trust copyright notice, including
+// terms governing use, modification, and redistribution, is contained in the
+// file LICENSE at the root of the source code distribution tree.
+
+#import <Foundation/Foundation.h>
+
+//! Project version number for AITrustWalletCore.
+FOUNDATION_EXPORT double TrustWalletCoreVersionNumber;
+
+//! Project version string for AITrustWalletCore.
+FOUNDATION_EXPORT const unsigned char TrustWalletCoreVersionString[];
+
+#include <AITrustWalletCore/TWBase.h>
+#include <AITrustWalletCore/TWData.h>
+#include <AITrustWalletCore/TWString.h>
+#include <AITrustWalletCore/TWFoundationData.h>
+#include <AITrustWalletCore/TWFoundationString.h>
+
+#include <AITrustWalletCore/TWAnySigner.h>
+
+<% entities.sort { |x,y| x.name <=> y.name }.select { |entity| !entity.name.end_with?("Proto") }.each do |entity| -%>
+#include <AITrustWalletCore/TW<%= entity.name %>.h>
+<% end -%>

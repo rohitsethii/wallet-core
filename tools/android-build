@@ -1,0 +1,12 @@
+#!/bin/bash
+#
+# This script builds the Android release package.
+
+set -e
+
+pushd android
+./gradlew assembleRelease
+cp aitrustwalletcore/build/outputs/aar/aitrustwalletcore-release.aar ../build/aitrustwalletcore.aar
+popd
+
+echo "Now upload build/aitrustwalletcore.aar to https://github.com/TrustWallet/trust-wallet-core/releases/tag/$(git describe --long --tags | cut -f 1 -d "-")"

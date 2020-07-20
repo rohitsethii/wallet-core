@@ -1,0 +1,17 @@
+platform :ios, '11.0'
+ENV['COCOAPODS_DISABLE_STATS'] = 'true'
+inhibit_all_warnings!
+target 'AITrustWalletCore' do
+  use_frameworks!
+
+  pod 'SwiftProtobuf'
+  pod 'SwiftLint'
+
+  target 'TrustWalletCoreTests'
+end
+
+post_install do |installer|
+  installer.pods_project.build_configurations.each do |config|
+    config.build_settings['BUILD_LIBRARY_FOR_DISTRIBUTION'] = 'YES'
+  end
+end
